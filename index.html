@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="us">
+<head>
+	<meta charset="utf-8">
+	<link rel="shortcut icon" type="image/x-icon" href="res/icon.ico" />
+	<title>Orange</title>
+	
+	<script src="js/jquery-1.10.2.js"></script>
+	<script src="js/jquery-ui-1.10.4.custom.js"></script>
+	<script src="js/jquery.animate-colors.js"></script>
+	<script src="js/jquery.hint.js"></script>
+	<script src="js/jQueryRotate.js"></script>
+	<script src="js/raphael.js"></script>
+	<script type="text/javascript" src="js/fileSaver.js">
+	</script>
+
+	<script src="codemirror/lib/codemirror.js"></script>
+	<script src="codemirror/keymap/emacs.js"></script>
+	<script src="codemirror/keymap/sublime.js"></script>
+	<script src="codemirror/keymap/vim.js"></script>
+
+	<link rel="stylesheet" type="text/css" href="codemirror/lib/codemirror.css" />
+
+	<script src="codemirror/mode/clike/clike.js"></script>
+	<script src="codemirror/mode/css/css.js"></script>
+	<script src="codemirror/mode/go/go.js"></script>
+	<script src="codemirror/mode/htmlmixed/htmlmixed.js"></script>
+	<script src="codemirror/mode/javascript/javascript.js"></script>
+	<script src="codemirror/mode/lua/lua.js"></script>
+	<script src="codemirror/mode/perl/perl.js"></script>
+	<script src="codemirror/mode/php/php.js"></script>
+	<script src="codemirror/mode/python/python.js"></script>
+	<script src="codemirror/mode/ruby/ruby.js"></script>
+	<script src="codemirror/mode/sql/sql.js"></script>
+	<script src="codemirror/mode/xml/xml.js"></script>
+
+	<script type="text/javascript" src="https://www.dropbox.com/static/api/2/dropins.js" id="dropboxjs" data-app-key="9cyzqdqmb95rpya"></script>
+
+	<script src="src/path.js"></script>
+	<script src="src/box.js"></script>
+	<script src="src/container.js"></script>
+	<script src="src/tab.js"></script>
+	<script src="src/splicer.js"></script>
+
+	<script src="src/main.js"></script>
+</head>
+<body>
+
+<!--top-->
+
+<div class="top ui">
+	<div id="font-slider"></div>
+	<div id="tab-radio">
+		<form>
+			<div id="tabs" class="ui">
+				<input type="radio" class="tab" id="tab-0" name="tab-name" checked="checked"/><label for="tab-0" class="tab-label">Tab 0</label>
+			</div>
+		</form>
+		<input type="submit" value="+" id="add-tab" class="ui">
+	</div>
+</div>
+
+<!--menus-->
+<ul id="menu" class="menu">
+	<li id="menu-new-box"><a href="#">Add Peel</a></li>
+	<li id="menu-new-container"><a href="#">Add Basket</a></li>
+	<li id="menu-path-toggle"><a href="#">Hide Paths</a></li>
+	<li id="read-flow-title"><a href="#">Read Flow</a>
+		<ul id="read-flow" class="sub-menu">
+			<li id="menu-read-flow-tb"><a href="#">Top to Bottom</a></li>
+			<li id="menu-read-flow-lr"><a href="#">Left to Right</a></li>
+			<li id="menu-read-flow-custom"><a href="#">Custom</a></li>
+		</ul>
+	</li>
+	<li><a href="#">Editor</a>
+		<ul id="menu-editor" class="sub-menu">
+			<li><a href="#">Language</a>
+				<ul id="menu-language" class="sub-menu">
+					<li id="menu-lang-cLike"><a href="#">C, C++, C#</a></li>
+					<li id="menu-lang-css"><a href="#">CSS</a></li>
+					<li id="menu-lang-go"><a href="#">GO</a></li>
+					<li id="menu-lang-html"><a href="#">HTML</a></li>
+					<li id="menu-lang-java"><a href="#">Java</a></li>
+					<li id="menu-lang-js"><a href="#">JavaScript</a></li>
+					<li id="menu-lang-lua"><a href="#">Lua</a></li>
+					<li id="menu-lang-perl"><a href="#">Perl</a></li>
+					<li id="menu-lang-php"><a href="#">PHP</a></li>
+					<li id="menu-lang-py"><a href="#">Python</a></li>
+					<li id="menu-lang-ruby"><a href="#">Ruby</a></li>
+					<li id="menu-lang-sql"><a href="#">SQL</a></li>
+					<li id="menu-lang-xml"><a href="#">XML</a></li>
+				</ul>
+			</li>
+			<li><a href="#">Bindings</a>
+				<ul id="menu-bindings" class="sub-menu">
+					<li id="menu-bind-emac"><a href="#">Emacs</a></li>
+					<li id="menu-bind-sub"><a href="#">Sublime</a></li>
+					<li id="menu-bind-vim"><a href="#">Vim</a></li>
+				</ul>
+			</li>
+		</ul>
+	</li>
+</ul>
+
+<ul id="tab-menu" class="menu">
+	<li id="tab-menu-delete"><a href="#">Delete</a></li>
+	<li id="tab-menu-db-sync"><a href="#">Dropbox Sync</a></li>
+</ul>
+
+<ul id="box-menu" class="menu">
+	<li id="box-menu-delete"><a href="#">Delete</a></li>
+</ul>
+
+<ul id="container-menu" class="menu">
+	<li id="container-menu-delete"><a href="#">Delete</a></li>
+</ul>
+
+<!--entities-->
+
+<div id="box" class="box box-click round" spellcheck="false">
+	<div align="center" id="handle" class="ui-widget-header box-click handle"  contenteditable="true">
+		Box
+	</div>
+
+	<div id="text" class="box-click text">
+			<textarea id="paragraph" class="paragraph box-click"></textarea>
+	</div>
+
+	<input id="box-spinner" name="value" class="box-spinner box-click">
+	<div id="runner-container" class="ui-corner-all box-click runner-container"><span id="runner" class="ui-icon ui-icon-circle-triangle-e runner box-click"></span></div>
+</div>
+
+
+<div id="container" class="ui-widget-content container-click round">
+	<!--<div id="runner-container-container" class="ui-corner-all"><span id="runner-container" class="ui-icon ui-icon-circle-triangle-e"></span></div>-->
+</div>
+
+<div id="splicer" class="ui-widget-content">
+	<div id="splicer-content">
+		<div id="splicer-header">
+			<span id="splicer-close" class="ui-icon ui-icon-circle-close"></span>
+		</div>
+		<div id="splicer-file">
+			<div id="splicer-raphael"></div>
+			<textarea id="splice-text"></textarea>
+		</div>
+		<div id="splicer-footer">
+
+		</div>
+	</div>
+</div>
+
+<!--bottom-->
+
+<div class="bottom ui">
+	<lable for="help-top"><input type="submit" value="?" class="help-button" title="Help"/></lable>
+
+	<div class="file round ui-widget-content">
+		<input class="file-name-input round" id="file-name-input" hint="File name"></input>
+		<lable for="save-top"><input type="submit" value="Save" class="save-file" title="ctrl + s"></lable>
+	</div>
+
+	<div class="console round">
+		<!--<div class="console-top round ui-widget-content">
+			<img src="res/arrow.png" alt="" class="console-arrow">
+		</div>-->
+		<div class="console-bottom round ui-widget-content">
+			<input class="round console-input" hint="Console"></input>
+			<lable for="run"><input type="submit" value="Run" class="run round" title="ctrl + r"></lable>
+		</div>
+	</div>
+</div>
+
+<div id="dialog-help" title="Help">
+  <p></p>
+</div>
+
+<div id="dialog-text" title="No Content">
+  <p>No content made, create text by right clicking on the screen and selecting "new Peel".</p>
+</div>
+
+<div id="dialog-file" title="No File Name">
+  <p>No file name proveded.</p>
+</div>
+
+<div id="dialog-runner-error" title="Error:">
+	<p></p>
+</div>
+
+</body>
+</html>

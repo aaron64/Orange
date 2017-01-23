@@ -1,0 +1,225 @@
+#font-slider {
+	width: auto; 
+}
+
+.ui {
+	z-index: 998;
+}
+#tabs {
+	float: left;
+}
+#add-tab {
+	float: left; 
+	margin-top:2px
+}
+
+.CodeMirror {
+	border: 1px solid #eee;
+	height: auto;
+	min-width: 84px;
+	min-height: 48px;
+	font-size: 12px;
+}
+.CodeMirror-scroll {
+	overflow-y: hidden;
+	overflow-x: auto;
+}
+
+#box {
+	width: auto; 
+	height: auto; 
+	min-width: 72px; 
+	min-height: 64px; 
+	padding:0em; 
+	float: left; 
+	margin: 0 0px 0px 0; 
+	z-index: 0;
+}
+#text {
+	width:auto; 
+	height:auto;
+}
+#box #handle {
+	cursor: move;
+}
+
+#box-spinner {
+	width: auto;
+	height: auto;
+	min-width: 16px;
+	max-width: 32px;
+	float:left;
+}
+#runner {
+	float:right;
+}
+#runner-container {
+	float:right;
+}
+#container {
+	width: auto; 
+	height: auto; 
+	min-width: 128px; 
+	min-height: 128px; 
+	padding: 0em; 
+	float: left; 
+	margin: 0 0px 0px 0;
+}
+.paragraph {
+	font-size: 16px; 
+	margin-top: 8px; 
+	margin-bottom: 8px; 
+	height:auto;
+}
+
+
+
+.menu {
+	font-size: 12px;
+	width: 120px; 
+	z-index: 1000;
+}
+.sub-menu {
+	width: 120px;
+	z-index: 1001;
+}
+
+
+.left {
+	margin-top: 100px;
+	float: right;
+}
+
+ul{
+	list-style-type:none;
+}
+#side-menu {
+    float: left;
+    width: 280px;
+    border-top: 1px solid #999;
+    border-right: 1px solid #999;
+    border-left: 1px solid #999;
+}
+#side-menu li a {
+    display: block;
+    padding: 10px 15px;
+    background: #ccc;
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #999;
+    text-decoration: none;
+    color: #000;
+}
+#side-menu li a:hover {
+    background: #ff8245;
+    color: #fff;
+}
+#side-menu li a.active {
+    background: #ff5f12;
+    color: #fff;
+}
+#side-menu li ul {
+    display: none;
+}
+#side-menu li ul li a {
+    padding: 10px 25px;
+    background: #ececec;
+    border-bottom: 1px dotted #ccc;
+}
+
+
+
+.bottom {
+	position: absolute; 
+	bottom: 8px; 
+	z-index: 999
+}
+.help-button {
+	display: inline;
+	float:left; 
+	margin-top:32px;
+}
+
+.console {
+	width: 440px; 
+	display: inline; 
+	float:right; 
+	margin-top: 25px;
+	padding-right: 16px;
+}
+
+.console-bottom {
+	width: 440px; 
+	display: inline; 
+	float:left;
+	bottom:3px;
+}
+.console-input {
+	font-size: 24px; 
+	margin-top: 6px; 
+	white-space: nowrap; 
+	overflow: hidden; 
+	float: left; 
+	width: 350px;
+}
+.run {
+	float: right;
+}
+
+.file {
+	width: 360px; 
+	display: inline; 
+	float:right; 
+	margin-top:25px;
+}
+.file-name-input {
+	font-size: 24px; 
+	margin-top: 6px; 
+	white-space: nowrap; 
+	overflow: hidden; 
+	float: left; 
+	width: 270px; 
+}
+.save-file {
+	float: right;
+}
+
+
+pre {
+	margin: 0 0;
+}
+
+
+#splicer {
+	position: absolute;
+	width: 400px;
+	height: 150px;
+}
+#splicer-header {
+	
+	height: 16px;
+}
+#splicer-close {
+	float:right;
+}
+#splicer-content {
+}
+#splicer-file {
+	
+}
+
+#splicer-raphael {
+	position: absolute;
+	pointer-events: none;
+	margin: 0 0 0 0;
+	padding: 0 0 0 0;
+	z-index: 9999;
+}
+
+
+.diagonal
+{
+	transform: rotate(45deg);
+	-moz-transform: rotate(45deg);
+	-webkit-transform: rotate(45deg);
+	-o-transform: rotate(45deg);
+}
