@@ -4,7 +4,8 @@ function Container(x, y, readFlow, tab)
 	this.id = this.tab.containerId;
 	this.name = "container" + this.id;
 	this.peels = [];
-
+	
+	// add a box to the container
 	this.addPeel = function(peel)
 	{
 		for(var i = 0; i <this.peels.length; i++)
@@ -20,7 +21,7 @@ function Container(x, y, readFlow, tab)
 	//clone, append to doc
 	this.c = $("#container").clone();
 	this.c.attr("id", this.name).appendTo(document.body);
-	this.runnerContainer = $(this.c).find("#runner-container");//.attr("id", "runner-container" + this.id);
+	this.runnerContainer = $(this.c).find("#runner-container");
 
 	//css on container
 	$(this.c).css({position:"absolute", left: x, top: y});
@@ -82,20 +83,7 @@ function Container(x, y, readFlow, tab)
 
 	}).show();
 
-	//runner
-	/*$("#runner-container" + this.id).click($.proxy(function()
-	{
-		var s ="";
-		alert(peels[0])
-		try
-		{
-			eval(s);
-		}
-		catch(err)
-		{
-			$("#dialog-runner-error").text(err).dialog("open");
-		}
-	}), this);*/
+	
 
 	//drag
 	$("#" + this.name).on("drag", $.proxy(function(e, ui)
@@ -108,6 +96,7 @@ function Container(x, y, readFlow, tab)
 		updateSpinners(readFlow, this.tab);
 	}),this);
 
+	// droping into container
 	$("#" + this.name).on("drop", function(e, ui)
 	{
 		$(this).addClass("ui-state-highlight");
