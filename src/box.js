@@ -1,4 +1,4 @@
-//jquery methods
+// When text is selected
 jQuery.fn.selectText = function(){
 	var doc = document;
 	var element = this[0];
@@ -16,6 +16,7 @@ jQuery.fn.selectText = function(){
 	}
 };
 	
+// Box constructor
 function Box(x, y, readFlow, paper, tab)
 {
 	this.tab = tab;
@@ -31,11 +32,6 @@ function Box(x, y, readFlow, paper, tab)
 	this.runner = this.b.find(".runner");
 	this.boxSpinner = this.b.find(".box-spinner");
 
-	//change id of handle and text
-	/*$("#" + this.name).children().first().attr("id", "handle" + this.id);
-	$("#" + this.name).find("#text").attr("id", "text" + this.id);
-	$("#" + this.name).find("#box-spinner").attr("id", "box-spinner" + this.id);
-	$("#" + this.name).find("#runner").attr("id", "runner" + this.id);*/
 
 	//set handles text to "box (id)"
 	$(this.handle).text("Peel " + this.id);
@@ -74,8 +70,7 @@ function Box(x, y, readFlow, paper, tab)
 	$(this.text).enableSelection();
 
 	//syntax highlight
-	//$(b.child(".text")).children().first().attr("id", "paragraph" + this.id);
-	var boxForSH = $(this.b.find(".paragraph"))[0];//document.getElementById("paragraph" + this.id);
+	var boxForSH = $(this.b.find(".paragraph"))[0];
 	this.cm = CodeMirror.fromTextArea(boxForSH, {
 		theme: themeName,
 		keyMap: "sublime",
@@ -96,7 +91,7 @@ function Box(x, y, readFlow, paper, tab)
 		this.cm.setOption("keyMap", bind);
 	}
 
-	//runner
+	//component used to run js script
 	$(this.runner).click($.proxy(function()
 	{
 		var s = this.cm.getValue();
@@ -121,7 +116,8 @@ function Box(x, y, readFlow, paper, tab)
 		changeValue(ui.value, this);
 		$(this).blur();
 	});
-
+	
+	// on value change listener
 	changeValue = function(uiVal, box)
 	{
 		var spinnerIndex, spinner;
@@ -161,8 +157,8 @@ function Box(x, y, readFlow, paper, tab)
 		drawPath(tab.boxes, paper, tab)
 	}
 
-	//this.tab.add(this);
-
+	
+	// reorder spinners
 	updateSpinners = function(readFlow, tab)
 	{
 		switch(readFlow.str) {
